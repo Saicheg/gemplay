@@ -9,6 +9,7 @@ class AnswerChannel < ApplicationCable::Channel
   end
 
   def push(data)
-    ActionCable.server.broadcast 'answer_channel', text: data['text']
+    UserAnswer.create!(text: data['text'])
+    # ActionCable.server.broadcast 'answer_channel', text: data['text']
   end
 end

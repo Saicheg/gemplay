@@ -6,7 +6,7 @@ App.answer = App.cable.subscriptions.create "AnswerChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    console.log(data)
+    $('.user_answers-container').prepend(data['user_answer'])
 
   push: (text) ->
     @perform 'push', text: text
