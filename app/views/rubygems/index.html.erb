@@ -1,0 +1,9 @@
+<h1>Rubygems(<%= @rubygems.count %>)</h1>
+
+<div class="rubygem-container">
+  <% @rubygems.each do |rubygem| %>
+    <div class="rubygem">
+      <%= rubygem.name %>
+    </div>
+  <% end %>
+</div>
