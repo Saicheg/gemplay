@@ -35,8 +35,9 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 3.0'
   gem 'listen', '~> 3.0.5'
+  gem 'quiet_assets'
+  gem 'web-console', '~> 3.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
