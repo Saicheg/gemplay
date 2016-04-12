@@ -1,11 +1,9 @@
 <h1>Enter answer bellow</h1>
 
-<input name="user_answer">
+<form>
+  <input type="text" date-behaviour="user_answer_speaker">
+</form>
 
 <div class="user_answers-container">
-  <% @answers.each do |answer| %>
-    <div class="user_answer">
-      <%= answer.text %>
-    </div>
-  <% end %>
+  <%= render @user_answers %>
 </div>
