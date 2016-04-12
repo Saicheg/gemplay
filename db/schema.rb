@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412111212) do
+ActiveRecord::Schema.define(version: 20160412115335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,23 @@ ActiveRecord::Schema.define(version: 20160412111212) do
   end
 
   add_index "rubygems", ["name"], name: "index_rubygems_on_name", unique: true, using: :btree
+
+  create_table "user_answers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_answers", ["user_id"], name: "index_user_answers_on_user_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "version_histories", force: :cascade do |t|
     t.integer "version_id"
