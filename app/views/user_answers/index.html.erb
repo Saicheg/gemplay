@@ -1,0 +1,11 @@
+<h1>Enter answer bellow</h1>
+
+<input name="user_answer">
+
+<div class="user_answers-container">
+  <% @answers.each do |answer| %>
+    <div class="user_answer">
+      <%= answer.text %>
+    </div>
+  <% end %>
+</div>
