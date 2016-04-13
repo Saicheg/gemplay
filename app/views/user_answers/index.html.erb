@@ -3,7 +3,10 @@
 <%= link_to 'Sign in with Github', '/auth/github' %>
 
 <form>
-  <input type="text" data-behavior="answer_pusher">
+  <div class="">
+    <span id="answer-prompt"><%= answer_prompt %></span>
+    <input type="text" data-behavior="answer_pusher">
+  </div>
 </form>
 
 <div class="user_answers-container">

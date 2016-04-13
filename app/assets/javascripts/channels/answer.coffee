@@ -6,7 +6,14 @@ App.answer = App.cable.subscriptions.create { channel: 'AnswerChannel', u_uuid: 
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $('.user_answers-container').prepend(data['user_answer'])
+    do prependNewAnswer = ->
+      $('.user_answers-container').prepend(data['user_answer'])
+
+    do updateAnswerPrompt = ->
+      newestAnswer = $('.user_answers-container .user_answer-text').first()
+      if newestAnswer.length
+        answerPrompt = newestAnswer.text().split('').pop()
+        $('#answer-prompt').html(answerPrompt)
 
   push: (text) ->
     @perform 'push', text: text
