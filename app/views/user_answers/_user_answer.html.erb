@@ -1,3 +1,4 @@
 <div class="user_answer">
-  <%= user_answer.text %>
+  <span><%= user_answer.text %></span>
+  <span><%= link_to user_answer.user.github_url, user_answer.user.github_url %></span>
 </div>
