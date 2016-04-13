@@ -1,24 +1,15 @@
 ## README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Setup
 
-Things you may want to cover:
+- `rake db:create`
+- Download dump from https://rubygems.org/pages/data
+- Add hstore extension to created db `psql <db_name> -c 'create extension hstore;'`
+- load dump to db
+- `rake db:migrate`
+- Create application on github and add keys to secrets.yml
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### TODO
+1. Optimistic Lock
+2. Login logic(after submitting first answer or something else)
+3. Design
