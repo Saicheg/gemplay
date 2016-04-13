@@ -23,6 +23,7 @@ $(document).on 'keypress', '[data-behavior~=answer_pusher]', (event) ->
   if event.keyCode is 13 # return = send
     if didLogin
       App.answer.push($('#answer-prompt').text() + event.target.value)
+      $('#answer-errors').html('')
       event.target.value = ''
       event.preventDefault()
     else
