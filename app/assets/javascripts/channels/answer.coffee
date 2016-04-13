@@ -22,7 +22,7 @@ $(document).on 'keypress', '[data-behavior~=answer_pusher]', (event) ->
   didLogin = Cookies.get('u_uuid')
   if event.keyCode is 13 # return = send
     if didLogin
-      App.answer.push(event.target.value)
+      App.answer.push($('#answer-prompt').text() + event.target.value)
       event.target.value = ''
       event.preventDefault()
     else
