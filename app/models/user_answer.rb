@@ -1,3 +1,6 @@
+# TODO resolve autoload issue and remove
+require "#{Rails.root}/lib/rubygems/gem.rb"
+
 class UserAnswer < ApplicationRecord
   belongs_to :user
 
@@ -10,7 +13,7 @@ class UserAnswer < ApplicationRecord
   private
 
   def match_existing_rubygem?
-    unless Rubygem.exists?(name: text)
+    unless Rubygem.exists?(name: text) || Rubygems::Gem.exists?(text)
       errors[:base] << "There's no gem with name #{text.inspect}"
     end
   end

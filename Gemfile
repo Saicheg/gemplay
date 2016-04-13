@@ -27,6 +27,7 @@ source 'https://rubygems.org' do
   # gem 'capistrano-rails', group: :development
 
   gem 'omniauth-github'
+  gem 'httparty'
 
   group :development, :test do
     gem 'pry'
