@@ -11,7 +11,9 @@ class AnswerChannel < ApplicationCable::Channel
   def push(data)
     UserAnswer.create! do |answer|
       answer.text = data['text']
-      answer.user = User.find_by(uuid: params[:u_uuid])
+      answer.user = current_user
     end
+  rescue ActiveRecord::RecordInvalid => invalid
+    UserErrorsChannel.broadcast_to(current_user, errors: invalid.record.errors.full_messages)
   end
 end
