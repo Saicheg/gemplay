@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
 
     if @user
       session[:user_id] = @user.id
-      cookies[:u_uuid] = @user.uuid
+      # TODO to improve level of security we can ask about user with ajax and do not persist cookies parameters
+      cookies[:u_uuid] = { value: @user.uuid, expires: 1.day.from_now }
     end
 
     redirect_to root_url

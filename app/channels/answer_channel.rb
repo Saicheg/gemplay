@@ -9,7 +9,9 @@ class AnswerChannel < ApplicationCable::Channel
   end
 
   def push(data)
-    UserAnswer.create!(text: data['text'])
-    # ActionCable.server.broadcast 'answer_channel', text: data['text']
+    UserAnswer.create! do |answer|
+      answer.text = data['text']
+      answer.user = User.find_by(uuid: params[:u_uuid])
+    end
   end
 end
