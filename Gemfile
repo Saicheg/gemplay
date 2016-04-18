@@ -29,6 +29,16 @@ source 'https://rubygems.org' do
   gem 'omniauth-github'
   gem 'httparty'
 
+  group :development do
+    gem 'capistrano',         require: false
+    gem 'capistrano-rvm',     require: false
+    gem 'capistrano-rails',   require: false
+    gem 'capistrano-bundler', require: false
+    gem 'capistrano3-puma',   require: false
+    gem 'capistrano-sidekiq'
+  end
+
+
   group :development, :test do
     gem 'pry'
     gem 'pry-rails'

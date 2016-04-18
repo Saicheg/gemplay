@@ -5,8 +5,8 @@ class UserAnswer < ApplicationRecord
   belongs_to :user
 
   validates_presence_of :user, :text
-  validates :text, format: { with: /\A[a-zA-Z\d\s]\Z/, message: 'Can not contain numbers!' }
   validates_uniqueness_of :text
+  validates :text, format: { with:  /\A[a-zA-Z]+\z/, message: 'can not contain numbers!' }
   validate :match_last_user?
   validate :match_existing_rubygem?
   validate :match_game_rule?
@@ -33,7 +33,7 @@ class UserAnswer < ApplicationRecord
   end
 
   def match_last_user?
-    if UserAnswer.last.user_id == self.user_id
+    if UserAnswer.last && (UserAnswer.last.user_id == self.user_id)
       errors[:base] << "Last answer is yours!"
     end
   end
