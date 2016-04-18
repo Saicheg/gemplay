@@ -27,4 +27,12 @@ $(document).on 'keypress', '[data-behavior~=answer_pusher]', (event) ->
       event.target.value = ''
       event.preventDefault()
     else
-      alert('Login with github to start')
+      $.cookie("data_form", event.target.value);
+      window.location.replace("/auth/github")
+      event.preventDefault()
+
+$(window).load ->
+  dataForm = Cookies.get('data_form')
+  if dataForm
+    $('input').val(dataForm)
+    $.removeCookie("data_form")

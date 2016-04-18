@@ -1,6 +1,6 @@
 <h1>Enter answer bellow</h1>
 
-<%= link_to 'Sign in with Github', '/auth/github' %>
+<%= link_to 'Sign in with Github', '/auth/github' if !current_user %>
 
 <form>
   <div class="">
