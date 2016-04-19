@@ -7,6 +7,7 @@ class User < ApplicationRecord
       user.uid = auth['uid']
       user.name = auth['info']['name']
       user.github_url = auth['info']['urls']['GitHub']
+      user.photo_url = auth['info']['image']
     end
 
     user.reload

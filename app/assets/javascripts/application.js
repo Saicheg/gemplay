@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.lettering
 //= require js-cookie
 //= require_tree .

@@ -1,0 +1,97 @@
+.game-page
+  .container
+    .header
+      @media all and (min-width: 1300px)
+        height: 120px
+      @media all and (min-width: 1680px)
+        width: 90%
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: 5%
+      @media all and (max-width: 1300px)
+        font-size: 18px
+        height: 100px
+        margin-bottom: 5%
+      @media all and (max-width: 1000px)
+        font-size: 14px
+      @media all and (max-width: 700px)
+        font-size: 12px
+        flex: 1 0 100px
+      @media all and (max-width: 560px)
+        flex-flow: column wrap
+        flex: 1 0 150px
+      @media all and (max-width: 400px)
+        flex-flow: row wrap
+        justify-content: center
+
+      .clock
+        @media all and (min-width: 1680px)
+          height: 60%
+          width: 25%
+        @media all and (max-width: 560px)
+          height: 60%
+          width: 50%
+          order: 1
+        @media all and (max-width: 400px)
+          height: 50%
+          width: 60%
+        .time
+          .measure-item
+            .value
+              @media all and (max-width: 1300px)
+                font-size: 24px
+              @media all and (max-width: 1000px)
+                font-size: 20px
+              @media all and (max-width: 700px)
+                font-size: 24px
+              @media all and (max-width: 560px)
+                font-size: 16px
+              @media all and (max-width: 400px)
+                font-size: 12px
+            .text
+              text-transform: uppercase
+              color: rgba(255,255,255,0.5)
+              font-size: 16px
+              @media all and (max-width: 1280px)
+                font-size: 14px
+              @media all and (max-width: 1000px)
+                font-size: 12px
+              @media all and (max-width: 700px)
+                font-size: 10px
+        .date
+          @media all and (max-width: 1300px)
+            margin-top: 5%
+          @media all and (max-width: 1000px)
+            font-size: 18px
+          @media all and (max-width: 700px)
+            font-size: 20px
+          @media all and (max-width: 560px)
+            font-size: 16px
+          @media all and (max-width: 400px)
+            font-size: 12px
+
+      .logo
+        @media all and (max-width: 560px)
+          height: 100%
+          width: 40%
+          order: 3
+        @media all and (max-width: 400px)
+          height: 60%
+          width: 30%
+          order: 2
+
+      .sign-in
+        @media all and (min-width: 1680px)
+          width: 25%
+        @media all and (max-width: 1300px)
+          width: 25%
+        @media all and (max-width: 700px)
+          width: 30%
+        @media all and (max-width: 560px)
+          height: 30%
+          width: 45%
+          order: 2
+        @media all and (max-width: 400px)
+          height: 30%
+          width: 80%
+          order: 3

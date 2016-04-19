@@ -1,0 +1,75 @@
+.game-page
+  .container
+    .header
+      height: 100px
+      display: flex
+      flex-flow: row nowrap
+      justify-content: space-between
+      align-items: center
+      font-size: 20px
+      margin-bottom: 10%
+      .clock
+        width: 30%
+        height: 80%
+        .time
+          height: 60%
+          display: flex
+          flex-flow: row nowrap
+          justify-content: space-between
+          .measure-item
+            box-sizing: border-box
+            width: 34%
+            border-left: 1px solid rgba(255,255,255,0.5)
+            text-align: center
+            &:first-child
+              border: none
+              width: 26%
+            &:last-child
+              width: 40%
+            .value
+              margin: 5px
+            .text
+              text-transform: uppercase
+              color: rgba(255,255,255,0.5)
+              font-size: 16px
+        .date
+          margin-top: 10%
+          text-align: center
+          padding-right: 10%
+
+      .logo
+        width: 20%
+        height: 100%
+        background-image: asset-url("logo.png")
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+        cursor: pointer
+
+      .sign-in
+        width: 30%
+        height: 45px
+        .git-button
+          border: 1px solid white
+          position: relative
+          text-align: center
+          text-decoration: none
+          color: white
+          padding: 6% 6% 6% 24%
+          cursor: pointer
+          &:after
+            content: ""
+            display: block
+            position: absolute
+            top: 0
+            height: 100%
+            width: 12%
+            left: 6%
+            background-image: asset-url("git.png")
+            background-repeat: no-repeat
+            background-size: contain
+            background-position: center
+
+      .clock, .logo, .sign-in
+        display: inline-block
+        vertical-align: top

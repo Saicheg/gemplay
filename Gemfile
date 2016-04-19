@@ -23,6 +23,7 @@ source 'https://rubygems.org' do
   # Use ActiveModel has_secure_password
   # gem 'bcrypt', '~> 3.1.7'
 
+  gem 'slim'
 
   gem 'airbrake', '~> 4.3.2'
 

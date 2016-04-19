@@ -1,0 +1,57 @@
+.game-page
+  .container
+
+    .header
+      .clock
+        .time
+          .measure-item#days
+            .value 
+            .text days
+          .measure-item#hours
+            .value 
+            .text hours
+          .measure-item#minutes
+            .value
+            .text minutes
+        .date
+          | April 24, Minsk
+
+      .logo
+      .sign-in
+        = link_to 'Sign in with Github', '/auth/github', class:'git-button' if !current_user
+
+    .content-header
+      | Fill in your gem starting with the last letter of the previous word. The last wins a free ticket to RubyConfBy!
+    .content-body
+      .word-input first-letter="#{answer_prompt}"
+        form
+          input type="text" data-behavior="answer_pusher"
+          button.button.submit-button type="submit" Submit
+      #answer-errors
+      .history.user_answers-container
+        = render @user_answers.take(3)
+
+    .footer
+      .item.copyright © Ruby Conference
+      = link_to 'https://www.facebook.com/events/257589284572002/' do
+        .item.facebook
+      .item.twitter 
+        = link_to '#RUBYCONFBY', 'https://twitter.com/RubyConfBY'
+      .item.website
+        = link_to 'RubyConference.by', 'http://rubyconference.by'
+
+.sharing-modal.hidden
+  .modal-container
+    .close-modal-button
+    .modal-content
+      .header
+        | Share with friends
+      .social-networks
+        = link_to 'http://www.facebook.com/sharer.php?u=http://gemgame.rubyroidlabs.com' do
+          .item.fb
+        = link_to 'http://twitter.com/home?url=http://gemgame.rubyroidlabs.com' do
+          .item.tw
+        = link_to 'http://www.linkedin.com/shareArticle?url=http://gemgame.rubyroidlabs.com' do
+          .item.in
+      .ruby-conf
+        | #RUBYCONFBY

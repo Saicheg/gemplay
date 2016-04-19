@@ -13,26 +13,37 @@ App.answer = App.cable.subscriptions.create { channel: 'AnswerChannel', u_uuid: 
       newestAnswer = $('.user_answers-container .user_answer-text').first()
       if newestAnswer.length
         answerPrompt = newestAnswer.text().split('').pop()
-        $('#answer-prompt').html(answerPrompt)
+        $('.word-input').attr('first-letter', answerPrompt)
+        $('.user-answer:last-child').css('display', 'none')
+        $(".answer").lettering()
+        for answer in $(".answer")
+          $(answer).find('span:last-child').css('color', 'white')
 
   push: (text) ->
     @perform 'push', text: text
 
 sendAnswer = (answer) =>
-  App.answer.push($('#answer-prompt').text() + answer)
+  App.answer.push($('.word-input').attr('first-letter') + answer)
   $('#answer-errors').html('')
-  event.target.value = ''
+  $('[data-behavior~=answer_pusher]')[0].value = ''
   event.preventDefault()
 
-$(document).on 'keypress', '[data-behavior~=answer_pusher]', (event) ->
+processAnswer = (event) =>
   didLogin = Cookies.get('u_uuid')
+  answer = $('[data-behavior~=answer_pusher]')[0].value
+  if didLogin
+    sendAnswer(answer)
+  else
+    $.cookie("data_form", answer);
+    window.location.replace("/auth/github")
+    event.preventDefault()
+
+
+$(document).on 'keypress', '[data-behavior~=answer_pusher]', (event) ->
   if event.keyCode is 13 # return = send
-    if didLogin
-      sendAnswer(event.target.value)
-    else
-      $.cookie("data_form", event.target.value);
-      window.location.replace("/auth/github")
-      event.preventDefault()
+    processAnswer(event)
+
+$(document).on 'click', '.submit-button', processAnswer
 
 $(window).load ->
   dataForm = Cookies.get('data_form')
