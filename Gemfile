@@ -23,8 +23,8 @@ source 'https://rubygems.org' do
   # Use ActiveModel has_secure_password
   # gem 'bcrypt', '~> 3.1.7'
 
-  # Use Capistrano for deployment
-  # gem 'capistrano-rails', group: :development
+
+  gem 'airbrake', '~> 4.3.2'
 
   gem 'omniauth-github'
   gem 'httparty'
@@ -35,7 +35,6 @@ source 'https://rubygems.org' do
     gem 'capistrano-rails',   require: false
     gem 'capistrano-bundler', require: false
     gem 'capistrano3-puma',   require: false
-    gem 'capistrano-sidekiq'
   end
 
 
