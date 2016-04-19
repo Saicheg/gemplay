@@ -18,14 +18,17 @@ App.answer = App.cable.subscriptions.create { channel: 'AnswerChannel', u_uuid: 
   push: (text) ->
     @perform 'push', text: text
 
+sendAnswer = (answer) =>
+  App.answer.push($('#answer-prompt').text() + answer)
+  $('#answer-errors').html('')
+  event.target.value = ''
+  event.preventDefault()
+
 $(document).on 'keypress', '[data-behavior~=answer_pusher]', (event) ->
   didLogin = Cookies.get('u_uuid')
   if event.keyCode is 13 # return = send
     if didLogin
-      App.answer.push($('#answer-prompt').text() + event.target.value)
-      $('#answer-errors').html('')
-      event.target.value = ''
-      event.preventDefault()
+      sendAnswer(event.target.value)
     else
       $.cookie("data_form", event.target.value);
       window.location.replace("/auth/github")
@@ -36,3 +39,4 @@ $(window).load ->
   if dataForm
     $('input').val(dataForm)
     $.removeCookie("data_form")
+    sendAnswer(dataForm)

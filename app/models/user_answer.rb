@@ -6,12 +6,22 @@ class UserAnswer < ApplicationRecord
 
   validates_presence_of :user, :text
   validates_uniqueness_of :text
-  validates :text, format: { with:  /\A[a-zA-Z]+\z/, message: 'can not contain numbers!' }
+  validates :text, format: { with:  /\A*[a-zA-Z]\z/, message: 'must contain at least one letter!' }
   validate :match_last_user?
   validate :match_existing_rubygem?
   validate :match_game_rule?
 
   after_create_commit { AnswerBroadcastJob.perform_later(self) }
+
+  def last_letter
+    self.text.each_char.reverse_each do |letter|
+      if /[a-zA-Z]/.match(letter)
+        return letter
+      else
+        errors[:base] << "Gemname must contain at least one letter!"
+      end
+    end
+  end
 
   private
 
@@ -23,7 +33,7 @@ class UserAnswer < ApplicationRecord
 
   def match_game_rule?
     if last_answer = UserAnswer.last
-      last_answer_last_char = last_answer.text.last
+      last_answer_last_char = last_answer.last_letter
       new_answer_first_char = text.first
 
       unless last_answer_last_char == new_answer_first_char
