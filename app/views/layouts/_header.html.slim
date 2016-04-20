@@ -16,8 +16,11 @@
   .logo
   .sign-in
     - if current_user
-      .user-photo
-        = image_tag current_user.photo_url
+      .user-container
+        .user-photo
+          = image_tag current_user.photo_url
+        .user-name
+          = link_to current_user.name, current_user.github_url
     - else
       = link_to 'Sign in with Github', '/auth/github', class:'git-button' 
     

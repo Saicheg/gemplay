@@ -55,15 +55,35 @@
         width: 30%
         height: 45px
         font-size: 18px
-        .user-photo
-          width: 40px
-          height: 40px
-          border: 2px solid white
-          border-radius: 100%
-          overflow: hidden
-          margin-left: 60%
-          img
-            width: 100%
+        .user-container
+          position: relative
+          text-align: center
+          text-decoration: none
+          color: white
+          padding: 6% 6% 6% 24%
+          cursor: pointer
+          display: block
+          .user-photo
+            width: 40px
+            height: 40px
+            border: 2px solid white
+            border-radius: 100%
+            overflow: hidden
+            display: block
+            position: absolute
+            top: 0
+            left: 6%
+            img
+              width: 100%
+          .user-name
+            display: block
+            position: absolute
+            top: 8px
+            left: 30%
+            font-size: 30px
+            a
+              text-decoration: none
+              color: white
         .git-button
           border: 1px solid white
           position: relative
