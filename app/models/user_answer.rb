@@ -27,7 +27,7 @@ class UserAnswer < ApplicationRecord
   private
 
   def match_existing_rubygem?
-    unless Rubygem.exists?(name: text) || Rubygems::Gem.exists?(text)
+    unless Rubygem.exists?(name: text)
       errors[:base] << "There's no gem with name #{text.inspect}"
     end
   end
