@@ -1,6 +1,6 @@
 <div class='leaderboard'>
   <% index = 0 %>
-  <% @users.find_each do |user|%>
+  <% @users.limit(100).each do |user|%>
     <% index += 1 %>
     <div class="user">
       <div class="user-photo"><%= link_to image_tag(user.photo_url), user.github_url, target: '_blank'  %></div>
