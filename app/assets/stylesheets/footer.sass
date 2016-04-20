@@ -1,9 +1,8 @@
 .game-page
   .container
     .footer
-      position: absolute
-      bottom: 5%
-      left: 15%
+      margin: 10px auto
+      margin-top: 50px
       width: 70%
       +display-flex
       +flex-flow(row nowrap)
@@ -16,6 +15,7 @@
       .item
         &.copyright
           color: rgba(255,255,255,0.5)
+          margin: 20px 0 !important
         &.facebook
           width: 30px
           height: 30px
@@ -34,8 +34,7 @@
           background-size: contain
           background-position: left center
         &.rubyroid
-          width: 230px
-          height: 44px
+          height: 40px
           line-height: 27px
           padding-left: 30px
           background-image: asset-url("rubyroid-logo-white.png")
