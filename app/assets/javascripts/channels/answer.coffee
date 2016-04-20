@@ -27,6 +27,9 @@ sendAnswer = (answer) =>
   $('#answer-errors').html('')
   $('[data-behavior~=answer_pusher]')[0].value = ''
   event.preventDefault()
+  modalWasClosed = Cookies.get('modal')
+  if !modalWasClosed
+    showModalWindow()
 
 processAnswer = (event) =>
   didLogin = Cookies.get('u_uuid')
@@ -38,6 +41,18 @@ processAnswer = (event) =>
     window.location.replace("/auth/github")
     event.preventDefault()
 
+showModalWindow = ->
+  $('.sharing-modal').removeClass('hidden')
+  $('.sharing-modal').animate
+    opacity: 1
+  , 300
+  $.cookie("modal", 1);
+
+  $('.close-modal-button').click (e) ->
+    $('.sharing-modal').animate
+      opacity: 0
+    , 300, () ->
+      $('.sharing-modal').addClass('hidden')
 
 $(document).on 'keypress', '[data-behavior~=answer_pusher]', (event) ->
   if event.keyCode is 13 # return = send
@@ -52,3 +67,5 @@ $(window).load ->
     $('input').val(dataForm)
     $.removeCookie("data_form")
     sendAnswer(dataForm)
+  if /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    $('.user-container').css('display', 'none')
