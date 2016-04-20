@@ -12,16 +12,18 @@ App.answer = App.cable.subscriptions.create { channel: 'AnswerChannel', u_uuid: 
     do updateAnswerPrompt = ->
       newestAnswer = $('.user_answers-container .user_answer-text').first()
       if newestAnswer.length
+        showingAnswerLimit = 5
         answerPrompt = newestAnswer.text().split('').pop()
         $('.word-input').attr('first-letter', answerPrompt)
-        $('.user-answer:last-child').css('display', 'none')
+        $('.user-answer:last-child').css('display', 'none') if $(".answer").length > showingAnswerLimit
         $(".answer").lettering()
 
   push: (text) ->
     @perform 'push', text: text
 
 sendAnswer = (answer) =>
-  App.answer.push($('.word-input').attr('first-letter') + answer)
+  answer = ($('.word-input').attr('first-letter') + answer)
+  App.answer.push(answer)
   $('#answer-errors').html('')
   $('[data-behavior~=answer_pusher]')[0].value = ''
   event.preventDefault()
