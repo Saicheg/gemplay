@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RUBYlovo</title>
+    <title>Rubylovo - RubyConf 2016</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
     <meta name="theme-color" content="#d42228">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="description" content="<%= app_description %>"/>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
     <meta property="og:title" content="RUBYlovo RubyConf 2016" />
-    <meta property="og:description" content="RUBYlovo RubyConf 2016" />
+    <meta property="og:description" content="=<%= app_description %>" />
     <meta property="og:url" content="http://rubylovo.rubyroidlabs.com" />
     <meta property="og:image" content="http://rubylovo.rubyroidlabs.com/ruby-image200.png" />
   </head>
