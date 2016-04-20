@@ -12,10 +12,9 @@ App.answer = App.cable.subscriptions.create { channel: 'AnswerChannel', u_uuid: 
     do updateAnswerPrompt = ->
       newestAnswer = $('.user_answers-container .user_answer-text').first()
       if newestAnswer.length
-        showingAnswerLimit = 5
         answerPrompt = newestAnswer.text().split('').pop()
         $('.word-input').attr('first-letter', answerPrompt)
-        $('.user-answer:last-child').css('display', 'none') if $(".answer").length > showingAnswerLimit
+        $('.user-answer:nth-child(n+6)').remove()
         $(".answer").lettering()
 
   push: (text) ->
