@@ -2,7 +2,7 @@
 require "#{Rails.root}/lib/rubygems/gem.rb"
 
 class UserAnswer < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, counter_cache: true
 
   validates_presence_of :user, :text
   validates_uniqueness_of :text

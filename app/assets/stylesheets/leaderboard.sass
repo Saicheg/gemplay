@@ -1,0 +1,24 @@
+.leaderboard
+  +display-flex
+  +flex-flow(row wrap)
+  +justify-content(space-between)
+
+  .user
+    +display-flex
+    +flex-flow(column nowrap)
+    +align-items(center)
+
+    padding: 10px 20px
+
+    .user-photo
+      width: 40px
+      height: 40px
+      border: 2px solid white
+      border-radius: 100%
+      overflow: hidden
+      margin: 1%
+      img
+        width: 100%
+
+    .place
+      margin-top: 7px

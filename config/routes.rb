@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#create'
 
   root 'user_answers#index'
+
+  get '/leaderboard' => 'leaderboard#index', as: :leaderboard
 end
