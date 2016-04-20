@@ -1,5 +1,5 @@
 <div class="user-answer">
   <div class="user-photo"><%= image_tag user_answer.user.photo_url %></div>
-  <div class="user-name"><%= link_to user_answer.user.github_url, user_answer.user.github_url %></div>
+  <div class="user-name"><%= link_to user_answer.user.name, user_answer.user.github_url %></div>
   <div class="answer user_answer-text"><%= user_answer.text %></div>
 </div>

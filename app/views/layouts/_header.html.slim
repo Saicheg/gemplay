@@ -15,4 +15,9 @@
 
   .logo
   .sign-in
-    = link_to 'Sign in with Github', '/auth/github', class:'git-button' if !current_user
+    - if current_user
+      .user-photo
+        = image_tag current_user.photo_url
+    - else
+      = link_to 'Sign in with Github', '/auth/github', class:'git-button' 
+    

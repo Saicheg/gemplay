@@ -6,7 +6,7 @@ class UserAnswer < ApplicationRecord
 
   validates_presence_of :user, :text
   validates_uniqueness_of :text
-  validates :text, format: { with:  /\A*[a-zA-Z]\z/, message: 'must contain at least one letter!' }
+  validates :text, format: { with:  /\A*[a-zA-Z]\z/, message: 'must contain letter at the end!' }
   validate :match_last_user?
   validate :match_existing_rubygem?
   validate :match_game_rule?
