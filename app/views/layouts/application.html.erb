@@ -11,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="game-page">
+      <div class="container">
+        <%= render 'layouts/header'%>
+        <%= yield %>
+        <%= render 'layouts/footer'%>
+      </div>
+    </div>
+    <%= render 'layouts/sharing_modal'%>
   </body>
 </html>

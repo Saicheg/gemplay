@@ -1,0 +1,18 @@
+.header
+  .clock
+    .time
+      .measure-item#days
+        .value
+        .text days
+      .measure-item#hours
+        .value
+        .text hours
+      .measure-item#minutes
+        .value
+        .text minutes
+    .date
+      | April 24, Minsk
+
+  .logo
+  .sign-in
+    = link_to 'Sign in with Github', '/auth/github', class:'git-button' if !current_user

@@ -1,0 +1,15 @@
+.sharing-modal.hidden
+  .modal-container
+    .close-modal-button
+    .modal-content
+      .header
+        | Share with friends
+      .social-networks
+        = link_to 'http://www.facebook.com/sharer.php?u=http://gemgame.rubyroidlabs.com', target: '_blank' do
+          .item.fb
+        = link_to 'http://twitter.com/home?url=http://gemgame.rubyroidlabs.com', target: '_blank' do
+          .item.tw
+        = link_to 'http://www.linkedin.com/shareArticle?url=http://gemgame.rubyroidlabs.com', target: '_blank' do
+          .item.in
+      .ruby-conf
+        | #RUBYCONFBY

@@ -22,6 +22,9 @@ body
   background-position: center
   min-height: 100%
 
+  +display-flex
+  +align-items(stretch)
+
   .container
     margin: 0 auto
     width: 60%
@@ -33,10 +36,18 @@ body
     font-size: 20px
     position: relative
     box-sizing: border-box
-    display: flex
-    flex-flow: column nowrap
-    justify-content: space-around
+    +display-flex
+    +flex-flow(column nowrap)
+    +justify-content(space-around)
 
 .hidden
   display: none
+
+#answer-errors
+  position: absolute
+  bottom: -20px
+  left: 0
+  right: 0
+  text-align: center
+  font-size: 16px
 

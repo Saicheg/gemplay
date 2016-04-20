@@ -29,6 +29,7 @@ source 'https://rubygems.org' do
 
   gem 'omniauth-github'
   gem 'httparty'
+  gem 'compass-rails'
 
   group :development do
     gem 'capistrano',         require: false

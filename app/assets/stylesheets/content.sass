@@ -3,19 +3,28 @@
     .content-header
       width: 60%
       margin: 0 auto
-      margin-bottom: 5%
-      font-size: 4vh
+      font-size: 2vw
       line-height: 1.3em
       text-align: center
+
+      +display-flex
+      +align-items(center)
+
     .content-body
       width: 100%
       margin: 0 auto
+
+      +flex(1 0 80px)
+
       .word-input
         width: 90%
         margin: 20px auto
         height: 50px
         position: relative
         background-color: white
+        form
+          display: block
+          height: 100%
         &:before
           content: attr(first-letter)
           color: black
@@ -24,6 +33,7 @@
           position: absolute
           top: 25%
           left: 3%
+          text-transform: uppercase
         &:after
           content: ""
           display: block
@@ -54,6 +64,9 @@
           color: #b1242c
           outline: none
           border: none
+          &:hover
+            -webkit-filter: brightness(0.95)
+            filter: brightness(0.95)
 
 
         input, .submit-input
@@ -61,29 +74,37 @@
           vertical-align: top
           box-sizing: border-box
 
-      .history
+    .history
+      margin: 0 auto
+      +flex(1 0 160px)
+      .user-answer
         width: 90%
         margin: 0 auto
-        margin-top: 20px
-        .user-answer
-          & > div
-            display: inline-block
-            vertical-align: middle
-          .user-photo
-            width: 40px
-            height: 40px
-            border: 2px solid white
-            border-radius: 100%
-            overflow: hidden
-            margin: 1%
-            img
-              width: 100%
-          .user-name
-            margin: 0 1%
-            font-size: 16px
-            &:after
-              content: ":"
-          .answer
-            margin-left: 1%
-            font-size: 20px
-            color: rgba(255,255,255,0.5)
+        & > div
+          display: inline-block
+          vertical-align: middle
+        .user-photo
+          width: 40px
+          height: 40px
+          border: 2px solid white
+          border-radius: 100%
+          overflow: hidden
+          margin: 1%
+          img
+            width: 100%
+        .user-name
+          margin: 0 1%
+          font-size: 16px
+          a
+            text-decoration: none
+            color: white
+          &:after
+            content: ":"
+        .answer
+          margin-left: 1%
+          font-size: 20px
+          color: rgba(255,255,255,0.5)
+          span:first-child
+            text-transform: capitalize
+          span:last-child
+            color: white

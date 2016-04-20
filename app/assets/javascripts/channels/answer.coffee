@@ -16,8 +16,6 @@ App.answer = App.cable.subscriptions.create { channel: 'AnswerChannel', u_uuid: 
         $('.word-input').attr('first-letter', answerPrompt)
         $('.user-answer:last-child').css('display', 'none')
         $(".answer").lettering()
-        for answer in $(".answer")
-          $(answer).find('span:last-child').css('color', 'white')
 
   push: (text) ->
     @perform 'push', text: text
@@ -46,6 +44,7 @@ $(document).on 'keypress', '[data-behavior~=answer_pusher]', (event) ->
 $(document).on 'click', '.submit-button', processAnswer
 
 $(window).load ->
+  $(".answer").lettering()
   dataForm = Cookies.get('data_form')
   if dataForm
     $('input').val(dataForm)
