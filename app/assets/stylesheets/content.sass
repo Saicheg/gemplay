@@ -1,5 +1,6 @@
 .game-page
   .container
+    min-width: 320px
     .content-header
       width: 60%
       margin: 0 auto
@@ -25,37 +26,44 @@
         form
           display: block
           height: 100%
-        &:before
-          content: attr(first-letter)
-          color: black
-          font-size: 24px
-          display: block
-          position: absolute
-          top: 25%
-          left: 4%
-          text-transform: uppercase
-        &:after
-          content: ""
-          display: block
-          position: absolute
-          bottom: 20%
-          left: 7%
-          width: 58%
-          border-bottom: 1px solid #dddddd
-          z-index: 0
-        input
-          font-size: 20px
+        .answer-input-container
           width: 70%
-          height: 100%
-          outline: none
-          border: none
-          padding: 1% 3% 0 7%
+          color: black
           font-family: 'Open Sans', sans-serif
-          letter-spacing: 0.05em
-          position: relative
-          background-color: transparent
-          z-index: 10
+          display: table
+          vertical-align: top
+          position: absolute
+          bottom: 6px
+          #answer-prompt
+            text-transform: uppercase
+            padding-left: 15px
+          .bordered-input
+            width: calc(100% - 60px)
+            display: inline-block
+            input
+              width: 100%
+              display: block
+              padding: 0
+              border: 0
+              &:focus
+                outline-width: 0
+              &:after
+                width: 100%
+                content: 'N'
+            .border
+              border-bottom: 1px solid #dddddd
+              margin-top: -5px
+          #answer-prompt, input
+            line-height: 34px
+            font-size: 24px
+            font-family: 'Open Sans', sans-serif
+          #answer-prompt, input, button
+            // display: table-cell
+
         .submit-button
+          position: absolute
+          top: 0
+          right: 0
           font-size: 20px
           width: 30%
           height: 100%

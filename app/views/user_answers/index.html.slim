@@ -3,7 +3,12 @@
 .content-body
   .word-input first-letter="#{answer_prompt}"
     form
-      input type="text" data-behavior="answer_pusher" maxlength="150"
+      .answer-input-container
+        span#answer-prompt
+          = answer_prompt
+        .bordered-input
+          input type="text" data-behavior="answer_pusher" maxlength="150"
+          .border
       button.button.submit-button type="submit" Submit
     #answer-errors
 
