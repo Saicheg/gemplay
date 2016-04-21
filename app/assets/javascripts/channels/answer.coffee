@@ -32,7 +32,7 @@ sendAnswer = (answer) =>
 
 processAnswer = (event) =>
   didLogin = Cookies.get('u_uuid')
-  answer = $('[data-behavior~=answer_pusher]')[0].value
+  answer = $('#typed-answer').val()
   if didLogin
     sendAnswer(answer)
   else
@@ -58,6 +58,11 @@ $(document).on 'keypress', '[data-behavior~=answer_pusher]', (event) ->
     processAnswer(event)
 
 $(document).on 'click', '.submit-button', processAnswer
+
+writeAsnwerToSecretAttribute = (event) ->
+  oldValue = $('#typed-answer').val(@value)
+
+$('input[data-behavior~=answer_pusher]').on 'keyup propertychange', writeAsnwerToSecretAttribute
 
 $(window).load ->
   $(".answer").lettering()
