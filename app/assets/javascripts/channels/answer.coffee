@@ -1,4 +1,4 @@
-App.answer = App.cable.subscriptions.create { channel: 'AnswerChannel', u_uuid: Cookies.get('u_uuid') },
+App.answer = App.cable.subscriptions.create { channel: 'UserAnswerChannel', u_uuid: Cookies.get('u_uuid') },
   connected: ->
     # Called when the subscription is ready for use on the server
 
@@ -60,9 +60,9 @@ $(document).on 'keypress', '[data-behavior~=answer_pusher]', (event) ->
 $(document).on 'click', '.submit-button', processAnswer
 
 writeAsnwerToSecretAttribute = (event) ->
-  oldValue = $('#typed-answer').val(@value)
+  $('#typed-answer').val(@value)
 
-$('input[data-behavior~=answer_pusher]').on 'keyup propertychange', writeAsnwerToSecretAttribute
+$('input[data-behavior~=answer_pusher]').on 'keyup', writeAsnwerToSecretAttribute
 
 $(window).load ->
   $(".answer").lettering()
